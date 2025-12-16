@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta Estratégica | Consultoria Técnica Comercial Spdata</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1a3a8f;
+            --primary-light: #2a4bb5;
+            --accent-teal: #00a8e8;
+            --accent-orange: #ff6b35;
+            --light-gray: #f8f9fa;
+            --dark-gray: #212529;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: var(--dark-gray); background-color: var(--light-gray); }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 600; color: var(--primary-blue); margin-bottom: 1rem; }
+        h1 { font-size: 2.5rem; line-height: 1.2; }
+        h2 { font-size: 2rem; padding-bottom: 0.5rem; position: relative; }
+        h2:after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background-color: var(--accent-teal); }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        .section-title h2 { display: inline-block; }
+        .section-title h2:after { left: 50%; transform: translateX(-50%); }
+        .btn {
+            display: inline-block; padding: 12px 30px; background-color: var(--accent-teal); color: white;
+            border-radius: var(--border-radius); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+            border: none; cursor: pointer; transition: var(--transition); font-family: 'Montserrat', sans-serif;
+        }
+        .btn:hover { background-color: var(--accent-orange); transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); }
+        .btn-accent { background-color: var(--accent-orange); }
+        .btn-accent:hover { background-color: var(--accent-teal); }
+
+        /* Header & Hero */
+        header { background-color: white; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--primary-blue); }
+        .logo span { color: var(--accent-teal); }
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-light) 100%);
+            color: white; padding: 150px 0 100px; text-align: center; margin-top: 60px;
+        }
+        .hero h1 { color: white; }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem; color: rgba(255, 255, 255, 0.9); }
+
+        /* Value Cards & Cost Comparison */
+        .value-cards, .cost-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 3rem; }
+        .value-card, .cost-box {
+            background-color: white; border-radius: var(--border-radius); padding: 30px;
+            box-shadow: var(--box-shadow); transition: var(--transition);
+        }
+        .value-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); }
+        .value-card i { font-size: 2.5rem; color: var(--accent-teal); margin-bottom: 1.5rem; }
+        .cost-box.clt { border-top: 5px solid var(--primary-blue); }
+        .cost-box.pj { border-top: 5px solid var(--accent-orange); }
+        .cost-list { list-style: none; text-align: left; margin-bottom: 2rem; }
+        .cost-list li { margin-bottom: 0.8rem; padding-left: 25px; position: relative; }
+        .cost-list li:before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--accent-teal);}
+        .cost-list.clt-list li:before { color: var(--primary-blue); }
+        .cost-list.pj-list li:before { color: var(--accent-orange); }
+        .cost-value { font-size: 2rem; font-weight: 700; margin: 1.5rem 0; }
+
+        /* Escopo Aprimorado */
+        .escopo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 3rem; }
+        .escopo-categoria { background: white; border-radius: var(--border-radius); padding: 30px; box-shadow: var(--box-shadow); border-left: 5px solid var(--accent-teal); }
+        .escopo-categoria h3 { color: var(--primary-blue); border-bottom: 2px solid var(--light-gray); padding-bottom: 15px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .escopo-itens { list-style: none; }
+        .escopo-itens li { margin-bottom: 15px; padding-left: 35px; position: relative; }
+        .escopo-itens li:before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; top: 2px; color: var(--accent-teal); font-size: 1.2rem; }
+
+        /* Seção da Proposta */
+        .proposal { background-color: var(--primary-blue); color: white; text-align: center; }
+        .proposal h2 { color: white; }
+        .proposal h2:after { background-color: var(--accent-teal); }
+        .proposal-highlight {
+            background-color: rgba(255, 255, 255, 0.1); padding: 40px; border-radius: var(--border-radius);
+            max-width: 800px; margin: 0 auto 3rem; border: 2px dashed rgba(255, 255, 255, 0.3);
+        }
+        .valor-destaque { font-size: 4rem; font-weight: 800; color: white; margin: 1rem 0; text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+        .detalhes-valor { display: flex; justify-content: center; gap: 40px; margin-top: 2rem; flex-wrap: wrap; }
+        .detalhe-item { text-align: center; }
+        .detalhe-item i { font-size: 2rem; color: var(--accent-teal); margin-bottom: 10px; display: block; }
+
+        /* Representação em Eventos */
+        .eventos-section { background-color: rgba(255, 107, 53, 0.05); border-radius: var(--border-radius); padding: 40px; margin-top: 50px; }
+        .eventos-header { text-align: center; margin-bottom: 30px; }
+        .eventos-header h3 { color: var(--primary-blue); font-size: 1.8rem; }
+        .eventos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .evento-card { background: white; border-radius: var(--border-radius); padding: 25px; box-shadow: var(--box-shadow); text-align: center; }
+        .evento-card i { font-size: 2.2rem; color: var(--accent-orange); margin-bottom: 15px; }
+        .evento-card h4 { color: var(--primary-blue); margin-bottom: 10px; }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; align-items: flex-start; }
+            .nav-links { flex-direction: column; width: 100%; margin-top: 20px; display: none; }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; position: absolute; top: 20px; right: 20px; font-size: 1.5rem; cursor: pointer; color: var(--primary-blue); }
+            .hero { padding: 120px 0 80px; }
+            .valor-destaque { font-size: 3rem; }
+            .detalhes-valor { gap: 20px; }
+            .eventos-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 576px) {
+            h1 { font-size: 2rem; } h2 { font-size: 1.7rem; }
+            .valor-destaque { font-size: 2.5rem; }
+            .value-card, .cost-box, .escopo-categoria, .proposal-highlight, .evento-card { padding: 20px; }
+            .eventos-section { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">Spdata<span>Consultoria</span></div>
+            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Representação Estratégica e Consultoria Técnica</h1>
+            <p>Proposta para atuar como <strong>Consultor Técnico-Comercial Sênior</strong> e <strong>Representante Oficial da Spdata</strong> em eventos, potencializando resultados e expandindo a presença da marca.</p>
+            <a href="#proposta" class="btn btn-accent">Ver Proposta Completa</a>
+        </div>
+    </section>
+
+    <section id="contexto">
+        <div class="container">
+            <div class="section-title"><h2>Contexto e Relevância Estratégica</h2></div>
+            <p>Meu conhecimento profundo das soluções Spdata, combinado com experiência comercial, posiciona-me como o representante ideal para <strong>elevar a marca e converter oportunidades</strong> tanto em campo quanto em eventos setoriais.</p>
+            <div class="value-cards">
+                <div class="value-card"><i class="fas fa-bullhorn"></i><h3>Amplificação da Marca</h3><p>Representação qualificada da Spdata em feiras, congressos e eventos do setor, transmitindo confiança e expertise técnica aos prospects.</p></div>
+                <div class="value-card"><i class="fas fa-handshake"></i><h3>Geração de Oportunidades</h3><p>Captura de leads qualificados em eventos e conversão técnica durante as interações, encurtando o ciclo comercial.</p></div>
+                <div class="value-card"><i class="fas fa-chess-king"></i><h3>Suporte à Decisão da Diretoria</h3><p>Apoio técrico em reuniões estratégicas com clientes para definição de escopo de projetos e potencialização de resultados.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="custos" style="background-color: var(--light-gray);">
+        <div class="container">
+            <div class="section-title"><h2>Justificativa do Modelo e Investimento</h2></div>
+            <p>O valor de R$ 15.000/mês reflete um modelo profissional (PJ) onde assumo todos os encargos, oferecendo à Spdata uma relação comercial ágil e focada em resultados, sem custos trabalhistas ocultos.</p>
+            <div class="cost-container">
+                <div class="cost-box clt">
+                    <h3>Modelo CLT (Custos Empresa)</h3>
+                    <ul class="cost-list clt-list">
+                        <li>Encargos trabalhistas (FGTS, INSS patronal)</li><li>Férias + 1/3 constitucional</li>
+                        <li>13º Salário</li><li>Benefícios (Plano de Saúde, VT/VR)</li>
+                        <li>Custos com rescisão e estabilidade</li><li>Infraestrutura e equipamentos</li>
+                    </ul>
+                    <div class="cost-value">Custo Total: Salário + ~70%</div>
+                </div>
+                <div class="cost-box pj">
+                    <h3>Modelo PJ (Meus Custos)</h3>
+                    <ul class="cost-list pj-list">
+                        <li>Previdência (INSS Individual 20%)</li><li>Plano de Saúde Particular</li>
+                        <li>Provisionamento de Férias e 13º</li><li>Contabilidade e Impostos (Simples)</li>
+                        <li>Reserva para instabilidade profissional</li><li>Equipamentos, softwares e infraestrutura</li>
+                    </ul>
+                    <div class="cost-value">Remuneração Justa pelo Risco</div>
+                    <p style="font-style: italic; margin-top: 1rem; color: var(--accent-orange);">A remuneração em PJ precisa ser superior para cobrir estes custos e riscos, mantendo a qualidade do serviço.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="escopo">
+        <div class="container">
+            <div class="section-title"><h2>Escopo do Serviço: 2 a 3 Dias/Semana</h2></div>
+            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">Disponibilidade flexível e dedicada para atender demandas do time comercial, diretoria e representação em eventos.</p>
+            
+            <div class="escopo-grid">
+                <div class="escopo-categoria">
+                    <h3><i class="fas fa-user-tie"></i> Apoio Estratégico à Diretoria</h3>
+                    <ul class="escopo-itens">
+                        <li><strong>Participação em reuniões estratégicas</strong> com clientes principais para definição de escopo e objetivos de projetos.</li>
+                        <li><strong>Apoio na condução de negociações complexas</strong> com argumentação técnica das soluções Spdata.</li>
+                        <li><strong>Potencialização de resultados em contas atuais</strong> através de expansão de escopo e serviços.</li>
+                        <li>Análise técnica de viabilidade para novos projetos estratégicos.</li>
+                    </ul>
+                </div>
+                <div class="escopo-categoria">
+                    <h3><i class="fas fa-users-cog"></i> Apoio ao Time Comercial</h3>
+                    <ul class="escopo-itens">
+                        <li><strong>Suporte técrico-comercial avançado</strong> para oportunidades nacionais.</li>
+                        <li>Elaboração de <strong>propostas técnicas personalizadas</strong> das soluções Spdata.</li>
+                        <li>Realização de <strong>demonstrações técnicas especializadas</strong> para clientes.</li>
+                        <li>Capacitação do time comercial em aspectos técnicos complexos.</li>
+                    </ul>
+                </div>
+                <div class="escopo-categoria">
+                    <h3><i class="fas fa-map-marked-alt"></i> Gestão da Região Sul</h3>
+                    <ul class="escopo-itens">
+                        <li><strong>Cobertura comercial e técnica dedicada</strong> na região Sul (SP, PR, SC, RS).</li>
+                        <li><strong>Visitas presenciais estratégicas</strong> a clientes e prospects (deslocamento reembolsado).</li>
+                        <li>Construção de <strong>relacionamentos de alto nível</strong> com decisores-chave.</li>
+                        <li>Monitoramento do mercado regional da Spdata.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- NOVA SEÇÃO: REPRESENTAÇÃO EM EVENTOS -->
+            <div class="eventos-section">
+                <div class="eventos-header">
+                    <h3><i class="fas fa-calendar-alt"></i> Representação da Spdata em Eventos</h3>
+                    <p>Atuação como <strong>representante oficial técnico-comercial</strong> da Spdata em feiras, congressos e eventos do setor.</p>
+                </div>
+                <div class="eventos-grid">
+                    <div class="evento-card">
+                        <i class="fas fa-bullhorn"></i>
+                        <h4>Divulgação da Marca</h4>
+                        <p>Representação profissional da Spdata, comunicando valores, diferencial técnico e cases de sucesso.</p>
+                    </div>
+                    <div class="evento-card">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Captação Qualificada</h4>
+                        <p>Identificação e qualificação de leads técnicos durante eventos, com abordagem especializada.</p>
+                    </div>
+                    <div class="evento-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Inteligência de Mercado</h4>
+                        <p>Monitoramento da concorrência e tendências do setor durante participação em eventos.</p>
+                    </div>
+                    <div class="evento-card">
+                        <i class="fas fa-network-wired"></i>
+                        <h4>Networking Estratégico</h4>
+                        <p>Estabelecimento de contatos com parceiros potenciais e formadores de opinião do mercado.</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(26, 58, 143, 0.08); border-radius: var(--border-radius);">
+                    <p><strong>Observação:</strong> Custos de inscrição, passagens e hospedagem para eventos serão previamente acordados e reembolsados pela Spdata, conforme política da empresa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proposta" class="proposal">
+        <div class="container">
+            <div class="section-title"><h2>Investimento Estratégico Mensal</h2></div>
+            <div class="proposal-highlight">
+                <p style="font-size: 1.2rem; margin-bottom: 1rem;">Para representar a Spdata com excelência técnica e comercial, atuando como extensão da diretoria e do time comercial, proponho:</p>
+                <div class="valor-destaque">R$ 15.000,00</div>
+                <p style="font-size: 1.3rem; margin-bottom: 2rem;"><strong>Quinze mil reais mensais</strong></p>
+                <div class="detalhes-valor">
+                    <div class="detalhe-item"><i class="far fa-calendar-check"></i><p>2 a 3 dias/semana<br><small>Flexível conforme demanda</small></p></div>
+                    <div class="detalhe-item"><i class="fas fa-bullhorn"></i><p>Representação em Eventos<br><small>Divulgação Spdata</small></p></div>
+                    <div class="detalhe-item"><i class="fas fa-chess-board"></i><p>Apoio à Diretoria<br><small>Decisões estratégicas</small></p></div>
+                </div>
+            </div>
+            <a href="#contato" class="btn btn-accent btn-large" style="font-size: 1.1rem; padding: 15px 40px;">
+                <i class="fas fa-handshake"></i> Aceitar Proposta e Agendar Transição
+            </a>
+        </div>
+    </section>
+
+    <section id="contato">
+        <div class="container" style="text-align: center;">
+            <div class="section-title"><h2>Próximos Passos</h2></div>
+            <p style="max-width: 700px; margin: 0 auto 2rem;">Esta proposta formaliza a migração para um modelo de prestação de serviços (PJ) profissional, garantindo que a Spdata retenha um ativo estratégico e ganhe um representante técnico qualificado para eventos e reuniões estratégicas.</p>
+            <div style="background-color: rgba(0, 168, 232, 0.1); padding: 30px; border-radius: var(--border-radius); display: inline-block; text-align: left;">
+                <h4 style="color: var(--primary-blue);"><i class="fas fa-user"></i> Alexandre da Silva</h4>
+                <p><strong>Consultor Técnico-Comercial Sênior | Representante Spdata</strong><br>
+                Especialista em Soluções Spdata | Região Sul & Eventos Nacionais<br>
+                <i class="fas fa-envelope"></i> alexandre@consultoriaspdata.com</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background-color: var(--dark-gray); color: white; padding: 40px 0; text-align: center; margin-top: 60px;">
+        <div class="container">
+            <div class="footer-logo" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.8rem; color: white; margin-bottom: 1rem;">
+                Spdata<span style="color: var(--accent-teal);">Consultoria</span>
+            </div>
+            <p>Proposta de Prestação de Serviços – Representação Técnica e Comercial &copy; <span id="currentYear"></span></p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #aaa;">Representação estratégica da Spdata em eventos, reuniões e no mercado regional.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Mobile Simples
+        document.getElementById('menuToggle')?.addEventListener('click', function() {
+            alert('Menu de navegação seria aberto aqui. Em um site real, isso mostraria os links para as seções.');
+        });
+        
+        // Scroll Suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Ano atual no footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
